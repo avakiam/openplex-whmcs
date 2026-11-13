@@ -6,7 +6,7 @@
  * their limits and password, and signs customers in to the panel from the
  * client area. It talks to the OpenPlex REST API with an API key.
  *
- * @see https://github.com/avakiam/avakiam-openplex-whmcs
+ * @see https://github.com/avakiam/openplex-whmcs
  */
 
 if (!defined('WHMCS')) {
