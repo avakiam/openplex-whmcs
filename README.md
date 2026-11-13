@@ -22,7 +22,9 @@ accounts as orders are paid, go overdue or are cancelled.
 
 ## Install
 
-1. Copy `modules/servers/openplex` into your WHMCS installation, so that you have
+1. Download `openplex-whmcs-<version>.zip` from the
+   [releases](https://github.com/avakiam/openplex-whmcs/releases) and unzip it
+   in your WHMCS installation's folder, so that you have
    `<whmcs>/modules/servers/openplex/openplex.php`.
 2. In OpenPlex, create an API key on **API keys** as an administrator (to sell
    any kind of account) or as a reseller (accounts are then its customers).
