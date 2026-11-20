@@ -12,7 +12,7 @@ accounts as orders are paid, go overdue or are cancelled.
 | Terminate | The websites (files, mail, DNS) and databases are deleted, then the account |
 | Change package | The new limits (websites, databases, database size) |
 | Change password | The account's new password |
-| Log in to OpenPlex | The customer (or an admin, from the service page) is signed in to the panel with a one-time link — no password typed |
+| Log in to OpenPlex | A button on the customer's service page (and on the admin service page) signs them in to the panel with a one-time link — no password typed |
 
 ## Requirements
 

@@ -203,6 +203,19 @@ foreach (['ServiceSingleSignOn' => 'client', 'AdminSingleSignOn' => 'admin'] as 
     check("Single sign-on ($who): the link signs in as the customer", $code === 200, "HTTP $code");
 }
 
+// --- The customer's "Log in to OpenPlex" button (client area) ---------------
+$m = new \WHMCS\Module\Server();
+$m->loadByServiceID($sid);
+$ca = $m->call('ClientArea');
+check('Client area: login button on an active service', ($ca['vars']['openplexActive'] ?? false) === true
+    && strpos($ca['vars']['openplexLoginUrl'] ?? '', "id=$sid&dosinglesignon=1") !== false, $ca['templatefile'] ?? json_encode($ca));
+api('ModuleSuspend', ['serviceid' => $sid, 'suspendreason' => 'Check']);
+$m = new \WHMCS\Module\Server();
+$m->loadByServiceID($sid);
+$ca = $m->call('ClientArea');
+check('Client area: no login button while suspended', ($ca['vars']['openplexActive'] ?? true) === false);
+api('ModuleUnsuspend', ['serviceid' => $sid]);
+
 // --- Terminate ---------------------------------------------------------------
 api('ModuleTerminate', ['serviceid' => $sid]);
 [$code] = opx('GET', "/users/$opxId");

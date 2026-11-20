@@ -233,6 +233,23 @@ function openplex_AdminSingleSignOn(array $params)
     return openplex_singleSignOn($params, __FUNCTION__);
 }
 
+/**
+ * The customer's service page: a button that signs them in to the panel.
+ * WHMCS shows no single sign-on button of its own in the client area; the
+ * button opens the page with dosinglesignon=1, which runs
+ * openplex_ServiceSingleSignOn and redirects to the panel.
+ */
+function openplex_ClientArea(array $params)
+{
+    return [
+        'templatefile' => 'templates/clientarea',
+        'vars' => [
+            'openplexActive' => ($params['status'] ?? '') === 'Active' && openplex_storedId($params) !== null,
+            'openplexLoginUrl' => 'clientarea.php?action=productdetails&id=' . (int) $params['serviceid'] . '&dosinglesignon=1',
+        ],
+    ];
+}
+
 function openplex_AdminServicesTabFields(array $params)
 {
     $id = openplex_storedId($params);
