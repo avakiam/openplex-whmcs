@@ -48,4 +48,10 @@ Notes:
 - WHMCS's `AddProduct` API does not save the eighth module setting (the
   dashboard language), so the test sets it on the product directly, as the
   product page does.
+- The licence binds to the domain, IP and folder of its first check, and WHMCS
+  takes the IP from the request: open WHMCS always the same way (the browser on
+  this machine, or a browser in the Docker network that maps `localhost` to the
+  container's address). After a change, reissue the licence in the WHMCS client
+  area and clear the cached check (`update tblconfiguration set value='' where
+  setting='License'`).
 - `docker compose down -v` removes everything.
