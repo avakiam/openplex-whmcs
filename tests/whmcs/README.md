@@ -4,7 +4,7 @@ An end-to-end test on this machine: WHMCS (PHP 8.2, Apache, ionCube) with
 MariaDB, and an OpenPlex server in a systemd container, on one Docker network.
 WHMCS's own API (`localAPI`) runs every module action the way an order does,
 and the OpenPlex API checks each result. Last run: WHMCS 9.1.1 with OpenPlex
-0.33.0, all 29 checks passed, and the module log (with module debugging on)
+0.33.0, all 31 checks passed (including the client-area button), and the module log (with module debugging on)
 held no API key, password or sign-in link.
 
 It needs a WHMCS licence: a development licence from WHMCS works, and its terms
