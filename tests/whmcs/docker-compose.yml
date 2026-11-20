@@ -1,0 +1,32 @@
+name: whmcs-test
+services:
+  db:
+    image: mariadb:11.4
+    command: ["--sql-mode=", "--character-set-server=utf8mb4"]
+    environment:
+      MARIADB_DATABASE: whmcs
+      MARIADB_USER: whmcs
+      MARIADB_PASSWORD: whmcs-test-db-pw1
+      MARIADB_RANDOM_ROOT_PASSWORD: "1"
+    volumes: [db:/var/lib/mysql]
+  whmcs:
+    build: .
+    depends_on: [db]
+    # Only this computer can reach it (WHMCS development licence terms).
+    ports: ["127.0.0.1:8088:80"]
+    volumes: [www:/var/www/html]
+  openplex:
+    build: openplex-host
+    privileged: true
+    cgroup: host
+    tmpfs: [/run, /run/lock]
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:rw
+      - opx-docker:/var/lib/docker
+      - opx-containerd:/var/lib/containerd
+    ports: ["127.0.0.1:7081:7080"]
+volumes:
+  db:
+  www:
+  opx-docker:
+  opx-containerd:

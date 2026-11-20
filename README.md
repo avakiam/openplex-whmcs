@@ -87,6 +87,10 @@ OPX_KEY=opx_… OPX_PORT=7080 php tests/lifecycle.php
 It needs an administrator's API key and creates (then deletes) test accounts
 named `test.user-1…` and a website `whmcs-test.lan`.
 
+[`tests/whmcs`](tests/whmcs) runs the same actions in a real WHMCS (through its
+own API, as orders do) against a real OpenPlex server, all in Docker on one
+machine. Last run: WHMCS 9.1.1 and OpenPlex 0.33.0, all checks passed.
+
 ## License
 
 MIT — see [LICENSE](LICENSE). WHMCS is a trademark of WHMCS Limited; this module
