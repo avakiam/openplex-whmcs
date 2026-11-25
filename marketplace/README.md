@@ -12,7 +12,7 @@ rules); the vendor's website and support links come from the Group.
 | Price | Free |
 | Download URL | https://github.com/avakiam/openplex-whmcs/releases/download/v1.0.1/openplex-whmcs-1.0.1.zip |
 | Group website | https://openplex.dev |
-| Group support | https://github.com/avakiam/openplex-whmcs/issues (e-mail info@openplex.dev) |
+| Group support | https://openplex.dev/contact/ (WHMCS wants a contact page that needs no account, so not GitHub issues) |
 | Icon | `marketplace/icon-200.png` (200×200, from OpenPlex's icon) |
 | Screenshots | `marketplace/1-product-settings.png`, `2-admin-service.png`, `3-client-area.png` (Twenty-One theme, with the "Log in to OpenPlex" button) |
 
